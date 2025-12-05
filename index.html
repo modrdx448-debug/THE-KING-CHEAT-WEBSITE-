@@ -10,7 +10,7 @@
   .logo-circle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:180px;height:180px;border-radius:50%;border:4px solid red;z-index:2;}
   .logo{width:150px;height:150px;border-radius:50%;object-fit:cover;box-shadow:0 0 20px red,0 0 40px red;position:relative;z-index:3;}
   .title{font-size:36px;margin-top:20px;font-weight:bold;background:linear-gradient(90deg,#ff0000,#ff4d4d,#ff9999);-webkit-background-clip:text;-webkit-text-fill-color:transparent;position:relative;z-index:3;}
-  .btn{display:block;width:80%;max-width:300px;margin:10px auto;padding:12px;font-size:18px;border:none;border-radius:12px;font-weight:bold;cursor:pointer;background:red;color:#fff;box-shadow:0 0 15px red;transition:0.3s;position:relative;z-index:3;}
+  .btn{display:block;width:80%;max-width:300px;margin:10px auto;padding:12px;font-size:18px;border:none;border-radius:12px;font-weight:bold;cursor:pointer;background:red;color:#fff;box-shadow:0 0 15px red;transition:0.3s;position:relative;z-index:3;text-align:center;text-decoration:none;}
   .btn:hover{box-shadow:0 0 20px red;}
   .footer{margin:20px;font-size:12px;color:#fff;position:relative;z-index:3;}
   .socials{margin-top:20px;display:flex;justify-content:center;gap:20px;z-index:3;position:relative;}
@@ -30,11 +30,11 @@
 </div>
 <h1 class="title">THE KING CHEAT OFC</h1>
 
-<!-- Buttons -->
-<button class="btn" id="apkBtn">THE KING CHEAT V167 APK</button>
-<button class="btn" id="xapkBtn">THE KING CHEAT V167 XAPK</button>
-<button class="btn" id="obbBtn">OBB 931</button>
-<button class="btn" id="genBtn">GENERATE KEY</button>
+<!-- FIXED BUTTONS (Now clickable on GitHub Pages) -->
+<a class="btn" id="apkBtn" href="#" target="_blank">THE KING CHEAT V167 APK</a>
+<a class="btn" id="xapkBtn" href="#" target="_blank">THE KING CHEAT V167 XAPK</a>
+<a class="btn" id="obbBtn" href="#" target="_blank">OBB 931</a>
+<a class="btn" id="genBtn" href="#" target="_blank">GENERATE KEY</a>
 
 <div class="footer">© 2025 THE KING CHEATS | All Rights Reserved</div>
 
@@ -44,6 +44,8 @@
   <a id="ytBtn" href="#" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png"> YouTube</a>
   <a id="instaBtn" href="#" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/174/174855.png"> Instagram</a>
 </div>
+
+
 
 <script>
   // Particle Animation
@@ -79,34 +81,39 @@
   animate();
   window.addEventListener('resize',()=>{canvas.width=window.innerWidth;canvas.height=window.innerHeight;});
 
-  // Load saved data
+
+  // Load saved data (FULL FIXED)
   function loadData(){
-    const data=JSON.parse(localStorage.getItem('theKingData')||'{}');
-    // Buttons
-    if(data.apkName) document.getElementById('apkBtn').innerText=data.apkName; 
-    if(data.apkLink) document.getElementById('apkBtn').onclick=()=>window.open(data.apkLink,'_blank');
+    const data = JSON.parse(localStorage.getItem('theKingData') || '{}');
 
-    if(data.xapkName) document.getElementById('xapkBtn').innerText=data.xapkName; 
-    if(data.xapkLink) document.getElementById('xapkBtn').onclick=()=>window.open(data.xapkLink,'_blank');
+    // APK
+    if(data.apkName) apkBtn.innerText = data.apkName;
+    if(data.apkLink) apkBtn.href = data.apkLink;
 
-    if(data.obbName) document.getElementById('obbBtn').innerText=data.obbName; 
-    if(data.obbLink) document.getElementById('obbBtn').onclick=()=>window.open(data.obbLink,'_blank');
+    // XAPK
+    if(data.xapkName) xapkBtn.innerText = data.xapkName;
+    if(data.xapkLink) xapkBtn.href = data.xapkLink;
 
-    if(data.genName) document.getElementById('genBtn').innerText=data.genName; 
-    if(data.genLink) document.getElementById('genBtn').onclick=()=>window.open(data.genLink,'_blank');
+    // OBB
+    if(data.obbName) obbBtn.innerText = data.obbName;
+    if(data.obbLink) obbBtn.href = data.obbLink;
+
+    // Generate Key
+    if(data.genName) genBtn.innerText = data.genName;
+    if(data.genLink) genBtn.href = data.genLink;
 
     // Socials
-    if(data.tgName) document.getElementById('tgBtn').innerText=data.tgName;
-    if(data.tgLink) document.getElementById('tgBtn').href=data.tgLink;
+    if(data.tgName) tgBtn.innerText = " " + data.tgName;
+    if(data.tgLink) tgBtn.href = data.tgLink;
 
-    if(data.ytName) document.getElementById('ytBtn').innerText=data.ytName;
-    if(data.ytLink) document.getElementById('ytBtn').href=data.ytLink;
+    if(data.ytName) ytBtn.innerText = " " + data.ytName;
+    if(data.ytLink) ytBtn.href = data.ytLink;
 
-    if(data.instaName) document.getElementById('instaBtn').innerText=data.instaName;
-    if(data.instaLink) document.getElementById('instaBtn').href=data.instaLink;
+    if(data.instaName) instaBtn.innerText = " " + data.instaName;
+    if(data.instaLink) instaBtn.href = data.instaLink;
   }
 
-  window.onload=loadData;
+  window.onload = loadData;
 </script>
 
 </body>
